@@ -10,6 +10,7 @@ body {
   margin: 0;
   line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
 }
 
 img {
@@ -39,13 +40,6 @@ h2 {
   font-size: 1rem;
 }
 
-.stay__tag-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #4f4f4f;
-}
-
 .stay__type,
 .rating__number {
   font-size: 0.875rem;
@@ -54,6 +48,18 @@ h2 {
 
 .stay__type {
   color: #828282;
+}
+
+.stay__type-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4f4f4f;
+  border: 1px solid #4f4f4f;
+  padding: 0.3em 0.6em;
+  border-radius: 12px;
+  margin-right: 0.5em;
+  margin-right: 0.5rem;
 }
 
 .rating__number {
@@ -109,6 +115,7 @@ h2 {
 
 .stay__type {
   display: flex;
+  align-items: center;
 }
 
 .rating {
