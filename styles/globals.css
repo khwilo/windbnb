@@ -17,6 +17,10 @@ img {
   display: block;
 }
 
+.section__img {
+  border-radius: 24px;
+}
+
 /* ========================
   Typography
   ======================== */
