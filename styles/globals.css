@@ -55,3 +55,60 @@ h2 {
 .rating__number {
   color: #4f4f4f;
 }
+
+/* ========================
+  Layout
+  ======================== */
+.wrapper {
+  padding: 1em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.main__sectionTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+@media (min-width: 625px) {
+  .stays {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 625px) {
+  .section {
+    width: 30%;
+  }
+}
+
+.section__img {
+  order: -2;
+}
+
+.section__stay {
+  order: -1;
+  display: flex;
+}
+
+.stay__type {
+  display: flex;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
