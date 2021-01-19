@@ -1,16 +1,24 @@
+html {
+  font-size: calc(0.5em + 1vw);
+}
+
+@media (min-width: 625px) {
+  html {
+    font-size: calc(0.3em + 1vw);
+  }
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
 body {
   padding: 0;
   margin: 0;
   line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
 }
 
 img {
