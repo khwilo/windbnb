@@ -7,6 +7,7 @@ import { locationSearchOptions as searchOptions } from '../util';
 
 export default function Home() {
   const [locations, setLocations] = React.useState([]);
+  const [guestsCount, setGuestsCount] = React.useState(0);
 
   React.useEffect(() => {
     const options = searchOptions(stays);
@@ -38,7 +39,20 @@ export default function Home() {
                   ))}
                 </select>
               </div>
-              <div className='form__group'></div>
+              <div className='form__group'>
+                <input
+                  type='text'
+                  name='guests-count'
+                  value={guestsCount || 0}
+                  id='guests-count'
+                  aria-label='guests-count'
+                  placeholder='Add guests'
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setGuestsCount(parseInt(value, 10));
+                  }}
+                />
+              </div>
             </form>
           </div>
         </header>
