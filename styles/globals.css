@@ -36,6 +36,7 @@ img {
 h1,
 h2 {
   color: #333333;
+  margin-top: 0;
 }
 
 h1 {
@@ -59,9 +60,10 @@ h2 {
 }
 
 .stay__type-tag {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
+  text-align: center;
   color: #4f4f4f;
   border: 1px solid #4f4f4f;
   padding: 0.3em 0.6em;
@@ -104,6 +106,7 @@ h2 {
 .section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5em;
 }
 
 @media (min-width: 625px) {
