@@ -26,10 +26,6 @@ img {
   display: block;
 }
 
-.section__img {
-  border-radius: 24px;
-}
-
 /* ========================
   Typography
   ======================== */
@@ -117,6 +113,9 @@ h2 {
 
 .section__img {
   order: -2;
+  border-radius: 24px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .section__stay {
