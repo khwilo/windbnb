@@ -53,6 +53,9 @@ export default function Home() {
                   }}
                 />
               </div>
+              <div>
+                <img src='/images/search.svg' alt='search icon' />
+              </div>
             </form>
           </div>
         </header>
