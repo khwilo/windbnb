@@ -1,9 +1,18 @@
 import Head from 'next/head';
+import React from 'react';
 
 import StayCard from '../components/StayCard';
 import stays from '../data/stays.json';
+import { locationSearchOptions as searchOptions } from '../util';
 
 export default function Home() {
+  const [locations, setLocations] = React.useState([]);
+
+  React.useEffect(() => {
+    const options = searchOptions(stays);
+    setLocations(options);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -16,8 +25,21 @@ export default function Home() {
           <img src='/images/logo.svg' className='logo-image' />
 
           <div className='header__form'>
-            {/* TODO: Add input fields here */}
-            <p>Select input</p>
+            <form className='form'>
+              <div className='form__group'>
+                <select name='locations' id='location-select'>
+                  {locations.map((location, index) => (
+                    <option
+                      key={index}
+                      value={`${location.city}-${location.country}`}
+                    >
+                      {location.city}, {location.country}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className='form__group'></div>
+            </form>
           </div>
         </header>
 
