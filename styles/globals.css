@@ -91,6 +91,11 @@ h2 {
   justify-content: space-between;
 }
 
+.stay-count {
+  color: #4f4f4f;
+  font-size: 0.875rem;
+}
+
 @media (min-width: 625px) {
   .stays {
     display: flex;

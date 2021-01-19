@@ -24,7 +24,7 @@ export default function Home() {
         <main className='main'>
           <div className='main__sectionTop'>
             <h1 className='main__title'>Stays in Finland</h1>
-            <p className='stay-count'>12+ stays</p>
+            <p className='stay-count'>{`${stays.length}+ stays`}</p>
           </div>
 
           <div className='stays'>
