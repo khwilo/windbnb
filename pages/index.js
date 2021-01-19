@@ -1,5 +1,8 @@
 import Head from 'next/head';
 
+import StayCard from '../components/StayCard';
+import stays from '../data/stays.json';
+
 export default function Home() {
   return (
     <div>
@@ -25,155 +28,16 @@ export default function Home() {
           </div>
 
           <div className='stays'>
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
+            {stays.map((stay, index) => (
+              <StayCard
+                key={index}
+                title={stay.title}
+                photo={stay.photo}
+                superHost={stay.superHost}
+                type={stay.type}
+                rating={stay.rating}
               />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
-
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
-              />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
-
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
-              />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
-
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
-              />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
-
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
-              />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
-
-            <section className='section'>
-              <h2 className='section__title'>
-                Stylist apartment in center of the city
-              </h2>
-              <img
-                className='section__img'
-                src='https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80'
-                alt=''
-              />
-              <div className='stay section__stay'>
-                <div className='stay__type'>
-                  <p className='stay__type-tag'>Super host</p>
-                  <p className='stay__type-info'>Entire apartment . 2 beds</p>
-                </div>
-                <div className='rating'>
-                  <img
-                    className='rating__img'
-                    src='/images/star_rate.svg'
-                    alt='star rating icon'
-                  />
-                  <p className='rating__number'>4.40</p>
-                </div>
-              </div>
-            </section>
+            ))}
           </div>
         </main>
       </div>
