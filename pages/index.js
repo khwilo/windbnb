@@ -2,17 +2,31 @@ import Head from 'next/head';
 import React from 'react';
 
 import StayCard from '../components/StayCard';
-import stays from '../data/stays.json';
+import staysData from '../data/stays.json';
+import { useStays } from '../hooks';
 import { locationSearchOptions as searchOptions } from '../util';
 
 export default function Home() {
-  const [locations, setLocations] = React.useState([]);
-  const [guestsCount, setGuestsCount] = React.useState(0);
+  const [stays, locationOptions, guestsCount, location, dispatch] = useStays(
+    staysData
+  );
 
   React.useEffect(() => {
-    const options = searchOptions(stays);
-    setLocations(options);
+    dispatch({ type: 'LOAD_INITIAL_DATA', payload: staysData });
+    dispatch({
+      type: 'ADD_SEARCH_OPTIONS',
+      payload: searchOptions(staysData),
+    });
   }, []);
+
+  React.useEffect(() => {
+    dispatch({ type: 'FILTER_STAYS', payload: location });
+  }, [location]);
+
+  const handleLocationChange = (event) => {
+    const { name, value } = event.target;
+    dispatch({ type: 'UPDATE_LOCATION', payload: value });
+  };
 
   return (
     <div>
@@ -28,13 +42,16 @@ export default function Home() {
           <div className='header__form'>
             <form className='form'>
               <div className='form__group'>
-                <select name='locations' id='location-select'>
-                  {locations.map((location, index) => (
-                    <option
-                      key={index}
-                      value={`${location.city}-${location.country}`}
-                    >
-                      {location.city}, {location.country}
+                <select
+                  name='location'
+                  id='location-select'
+                  value={location}
+                  onChange={handleLocationChange}
+                >
+                  <option value=''>All Stays</option>
+                  {locationOptions.map((loc, index) => (
+                    <option key={index} value={loc.city}>
+                      {loc.city}, {loc.country}
                     </option>
                   ))}
                 </select>
@@ -49,7 +66,10 @@ export default function Home() {
                   placeholder='Add guests'
                   onChange={(event) => {
                     const { value } = event.target;
-                    setGuestsCount(parseInt(value, 10));
+                    dispatch({
+                      type: 'UPDATE_GUESTS_COUNT',
+                      payload: parseInt(value, 10),
+                    });
                   }}
                 />
               </div>
