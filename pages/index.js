@@ -48,9 +48,9 @@ export default function Home() {
                   value={location}
                   onChange={handleLocationChange}
                 >
-                  <option value=''>All Stays</option>
+                  <option value=''>All stays</option>
                   {locationOptions.map((loc, index) => (
-                    <option key={index} value={loc.city}>
+                    <option key={index} value={`${loc.city}-${loc.country}`}>
                       {loc.city}, {loc.country}
                     </option>
                   ))}

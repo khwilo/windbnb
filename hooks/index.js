@@ -16,11 +16,14 @@ export function useStays(initialData = []) {
         case 'UPDATE_LOCATION':
           return { ...state, location: action.payload };
         case 'FILTER_STAYS':
+          const [city, country] = action.payload.split('-');
           return {
             ...state,
             stays:
               action.payload !== undefined && action.payload.length > 0
-                ? initialData.filter((val) => val.city === action.payload)
+                ? initialData.filter(
+                    (val) => val.city === city && val.country === country
+                  )
                 : initialData,
           };
         default:
