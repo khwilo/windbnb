@@ -7,9 +7,13 @@ import { useStays } from '../hooks';
 import { locationSearchOptions as searchOptions } from '../util';
 
 export default function Home() {
-  const [stays, locationOptions, guestsCount, location, dispatch] = useStays(
-    staysData
-  );
+  const [
+    filteredStays,
+    locationOptions,
+    guestsCount,
+    location,
+    dispatch,
+  ] = useStays();
 
   React.useEffect(() => {
     dispatch({ type: 'LOAD_INITIAL_DATA', payload: staysData });
@@ -24,7 +28,7 @@ export default function Home() {
   }, [location]);
 
   const handleLocationChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     dispatch({ type: 'UPDATE_LOCATION', payload: value });
   };
 
@@ -83,11 +87,11 @@ export default function Home() {
         <main className='main'>
           <div className='main__sectionTop'>
             <h1 className='main__title'>Stays in Finland</h1>
-            <p className='stay-count'>{`${stays.length}+ stays`}</p>
+            <p className='stay-count'>{`${filteredStays.length}+ stays`}</p>
           </div>
 
           <div className='stays'>
-            {stays.map((stay, index) => (
+            {filteredStays.map((stay, index) => (
               <StayCard
                 key={index}
                 title={stay.title}

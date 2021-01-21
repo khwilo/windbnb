@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function useStays(initialData = []) {
+export function useStays() {
   const [staysState, dispatch] = React.useReducer(
     (state, action) => {
       switch (action.type) {
@@ -19,12 +19,12 @@ export function useStays(initialData = []) {
           const [city, country] = action.payload.split('-');
           return {
             ...state,
-            stays:
+            filteredStays:
               action.payload !== undefined && action.payload.length > 0
-                ? initialData.filter(
+                ? state.stays.filter(
                     (val) => val.city === city && val.country === country
                   )
-                : initialData,
+                : state.stays,
           };
         default:
           return state;
@@ -32,6 +32,7 @@ export function useStays(initialData = []) {
     },
     {
       stays: [],
+      filteredStays: [],
       locationOptions: [],
       guestsCount: 0,
       location: '',
@@ -39,7 +40,7 @@ export function useStays(initialData = []) {
   );
 
   return [
-    staysState.stays,
+    staysState.filteredStays,
     staysState.locationOptions,
     staysState.guestsCount,
     staysState.location,
