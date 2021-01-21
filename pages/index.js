@@ -45,12 +45,14 @@ export default function Home() {
 
           <div className='header__form'>
             <form className='form'>
-              <div className='form__group'>
+              <div className='form__group form__group--select'>
                 <select
+                  className='location-select'
                   name='location'
                   id='location-select'
                   value={location}
                   onChange={handleLocationChange}
+                  aria-label='location-select'
                 >
                   <option value=''>All stays</option>
                   {locationOptions.map((loc, index) => (
@@ -60,8 +62,9 @@ export default function Home() {
                   ))}
                 </select>
               </div>
-              <div className='form__group'>
+              <div className='form__group form__group--input'>
                 <input
+                  className='input--guestCount'
                   type='text'
                   name='guests-count'
                   value={guestsCount || 0}
@@ -77,8 +80,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div>
-                <img src='/images/search.svg' alt='search icon' />
+              <div className='search-iconWrapper'>
+                <img
+                  className='search-icon'
+                  src='/images/search.svg'
+                  alt='search icon'
+                />
               </div>
             </form>
           </div>
