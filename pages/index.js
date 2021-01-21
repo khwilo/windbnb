@@ -65,9 +65,9 @@ export default function Home() {
               <div className='form__group form__group--input'>
                 <input
                   className='input--guestCount'
-                  type='text'
+                  type='number'
                   name='guests-count'
-                  value={guestsCount || 0}
+                  value={guestsCount}
                   id='guests-count'
                   aria-label='guests-count'
                   placeholder='Add guests'
